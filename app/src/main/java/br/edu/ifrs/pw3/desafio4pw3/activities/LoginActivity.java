@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                     Cliente.email = txtEmail.getText().toString();
                     Cliente.nome = "Alexandre";
                     Cliente.cpf = txtSenha.getText().toString();
+                    Cliente.primeiroLogin = true;
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
                     startActivity(intent);
                 }

@@ -25,6 +25,8 @@ public class EditarFragment extends Fragment {
         AppCompatTextView textEmail = root.findViewById(R.id.textEditarFragment);
         textEmail.setText(Cliente.email);
 
+
+
         return root;
 
 

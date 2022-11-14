@@ -2,8 +2,10 @@ package br.edu.ifrs.pw3.desafio4pw3.activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +18,10 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
+import br.edu.ifrs.pw3.desafio4pw3.util.Cliente;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +42,23 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_cadastrarFragment, R.id.nav_listarFragment)
                 .setOpenableLayout(drawer)
                 .build();
+        Log.d("CLIENTE", Cliente.nome);
+        Log.d("CLIENTE", Cliente.email);
+        Log.d("CLIENTE", Cliente.cpf);
+        Log.d("CLIENTE", Cliente.endereco);
+        Log.d("CLIENTE", Cliente.enderecoLinha2);
+        Log.d("CLIENTE", Cliente.cidade);
+        Log.d("CLIENTE", Cliente.cep);
+        if(Cliente.primeiroLogin) Log.d("CLIENTE", "TRUE");
+        else Log.d("CLIENTE", "FALSE");
 
+
+
+
+        if(Cliente.primeiroLogin){
+            primeiroLogin();
+
+        }
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -46,6 +66,37 @@ public class MainActivity extends AppCompatActivity {
        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         NavigationUI.setupWithNavController(bottomNavigationView,Navigation.findNavController(this, R.id.nav_host_fragment));
 
+    }
+
+    private void primeiroLogin() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Primeiro Login");
+        //define a mensagem
+        builder.setMessage("Desja adicionar o seu endereco?")
+                .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        Snackbar snackbar = Snackbar
+                                .make(findViewById(android.R.id.content), "sim pressionado", Snackbar.LENGTH_LONG);
+                        snackbar.show();
+
+                        enterEnderecoFragment(findViewById(R.id.nav_host_fragment));
+
+                    }
+                })
+                .setNegativeButton(R.string.maistarde, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Snackbar snackbar = Snackbar
+                                .make(findViewById(android.R.id.content), "+ tarde pressionado", Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                    }
+                });
+        // Create the AlertDialog object and return it
+        builder.create().show();
+    }
+
+    private void enterEnderecoFragment(View view) {
+        Navigation.findNavController(view).navigate(R.id.action_Home_to_EnderecoFragment);
     }
 
     @Override

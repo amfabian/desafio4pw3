@@ -9,7 +9,24 @@
         android:id="@+id/nav_home"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+        android:id="@+id/action_Home_to_EnderecoFragment"
+        app:destination="@id/enderecoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/enderecoFragment"
+        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.EnderecoFragment"
+        android:label="enderecoFragment"
+        tools:layout="@layout/fragment_endereco">
+        <action
+            android:id="@+id/action_EnderecoFragment_to_Home"
+            app:destination="@+id/nav_home" />
+    </fragment>
+
+
+
     <fragment
         android:id="@+id/nav_share"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ShareFragment"

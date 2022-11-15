@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         if(Cliente.primeiroLogin) Log.d("CLIENTE", "TRUE");
         else Log.d("CLIENTE", "FALSE");
 
-        recyclerView = findViewById(R.id.MainActivityRecyclerView);
+    /*    recyclerView = findViewById(R.id.MainActivityRecyclerView);
         //configurar o adapter - que formata que o layout de cada item do recycler
         PedidoAdapter pedidoAdapter = new PedidoAdapter(Pedido.inicializaLista());
         Log.d("PRODUTOS", Pedido.inicializaLista().toString());
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         //definindo o layout do recycler
         recyclerView.setLayoutManager(layoutManager);
-
+*/
 
         if(Cliente.primeiroLogin){
             primeiroLogin();
@@ -126,17 +126,15 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_settings:
                 // User chose the "Settings" item, show the app settings UI...
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Titulo");
+                builder.setTitle("Sobre o App");
                 //define a mensagem
-                builder.setMessage("abrindo configurações")
+                String msg = "Aplicativo construido para a discplina de Programacao Web 3 do IFRS - POA";
+                builder.setMessage(msg)
                         .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                //colocar a ação aqui
-                            }
-                        })
-                        .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                //colocar a ação aqui
+                                Snackbar snackbar = Snackbar
+                                .make(findViewById(android.R.id.content), "Obrigado por utilizar o app", Snackbar.LENGTH_LONG);
+                        snackbar.show();
                             }
                         });
                 // Create the AlertDialog object and return it

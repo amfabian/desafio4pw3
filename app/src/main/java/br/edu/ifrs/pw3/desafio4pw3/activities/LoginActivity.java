@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if(txtSenha.getText().toString().isEmpty()){
             layoutSenha.setErrorEnabled(true);
-            layoutSenha.setError("Informe a sua senha");
+            layoutSenha.setError("Informe o seu cpf");
             return false;
         }else{
             layoutSenha.setErrorEnabled(false);

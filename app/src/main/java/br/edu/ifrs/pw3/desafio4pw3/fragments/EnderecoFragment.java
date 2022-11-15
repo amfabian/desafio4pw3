@@ -48,7 +48,7 @@ public class EnderecoFragment extends Fragment {
                 Cliente.enderecoLinha2 = textEnderecoLinha2.getText().toString();
                 Cliente.cidade = textCidade.getText().toString();
                 Cliente.cep = textCEP.getText().toString();
-                //Cliente.primeiroLogin = false;
+                Cliente.primeiroLogin = false;
 
                 Navigation.findNavController(view).navigate(R.id.action_EnderecoFragment_to_Home);
             }

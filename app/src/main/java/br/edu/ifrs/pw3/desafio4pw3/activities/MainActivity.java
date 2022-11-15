@@ -15,16 +15,20 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
+import br.edu.ifrs.pw3.desafio4pw3.adapter.PedidoAdapter;
 import br.edu.ifrs.pw3.desafio4pw3.util.Cliente;
+import br.edu.ifrs.pw3.desafio4pw3.util.Pedido;
 
 public class MainActivity extends AppCompatActivity {
-
+    RecyclerView recyclerView;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -52,7 +56,18 @@ public class MainActivity extends AppCompatActivity {
         if(Cliente.primeiroLogin) Log.d("CLIENTE", "TRUE");
         else Log.d("CLIENTE", "FALSE");
 
-
+        recyclerView = findViewById(R.id.MainActivityRecyclerView);
+        //configurar o adapter - que formata que o layout de cada item do recycler
+        PedidoAdapter pedidoAdapter = new PedidoAdapter(Pedido.inicializaLista());
+        Log.d("PRODUTOS", Pedido.inicializaLista().toString());
+        Log.d("PRODUTOS", String.valueOf(R.id.MainActivityRecyclerView));
+        recyclerView.setAdapter(pedidoAdapter);
+        //linha de código usada para otimizar o recycler
+        recyclerView.setHasFixedSize(true);
+        //configurar o gerenciador de layout
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        //definindo o layout do recycler
+        recyclerView.setLayoutManager(layoutManager);
 
 
         if(Cliente.primeiroLogin){

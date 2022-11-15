@@ -11,5 +11,5 @@ public class Cliente {
     public static String cidade = "";
     public static String cep = "";
 
-    public static boolean primeiroLogin;
+    public static boolean primeiroLogin = true;
 }

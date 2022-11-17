@@ -13,6 +13,9 @@
         <action
         android:id="@+id/action_Home_to_EnderecoFragment"
         app:destination="@id/enderecoFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_comprarFragment"
+            app:destination="@id/nav_comprarFragment" />
     </fragment>
 
     <fragment
@@ -33,12 +36,12 @@
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
     <fragment
-        android:id="@+id/nav_cadastrarFragment"
-        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.CadastrarFragment"
-        android:label="CadastrarFragment"
-        tools:layout="@layout/fragment_cadastrar">
+        android:id="@+id/nav_comprarFragment"
+        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ComprarFragment"
+        android:label="ComprarFragment"
+        tools:layout="@layout/fragment_comprar">
         <action
-            android:id="@+id/action_nav_cadastrarFragment_to_nav_home"
+            android:id="@+id/action_nav_comprarFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
     <fragment
@@ -55,18 +58,4 @@
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.EditarFragment"
         android:label="EditarFragment"
         tools:layout="@layout/fragment_editar"/>
-    <fragment
-        android:id="@+id/bottomnavcad"
-        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.CadastrarFragment"
-        android:label="CadastrarFragment"
-        tools:layout="@layout/fragment_cadastrar"/>
-    <fragment
-        android:id="@+id/bottomnavlist"
-        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ListarFragment"
-        android:label="ListarFragment"
-        tools:layout="@layout/fragment_listar">
-        <action
-            android:id="@+id/action_listarFragment_to_editarFragment"
-            app:destination="@id/editarFragment" />
-    </fragment>
 </navigation>

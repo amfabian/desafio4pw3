@@ -15,19 +15,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
-import br.edu.ifrs.pw3.desafio4pw3.adapter.PedidoAdapter;
-import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDAO;
-import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDatabase;
 import br.edu.ifrs.pw3.desafio4pw3.util.Cliente;
-import br.edu.ifrs.pw3.desafio4pw3.util.Pedido;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -45,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_cadastrarFragment, R.id.nav_listarFragment)
+                R.id.nav_home, R.id.nav_comprarFragment, R.id.nav_listarFragment)
                 .setOpenableLayout(drawer)
                 .build();
         Log.d("CLIENTE", Cliente.nome);
@@ -74,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 */
 
-        if(Cliente.primeiroLogin){
+        if(Cliente.endereco.isEmpty()){
             primeiroLogin();
 
         }

@@ -8,7 +8,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
 
@@ -20,6 +24,7 @@ public class HomeFragment extends Fragment {
     private TextView txtQuantidade3;
     private ImageButton buttonSub1;
     private ImageButton buttonAdd1;
+    private AppCompatButton buttonCompra1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,19 +38,47 @@ public class HomeFragment extends Fragment {
         buttonAdd1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(quantidade1 < 9) quantidade1++;
-                txtQuantidade1.setText(quantidade1.toString());
+                if(quantidade1 < 9) {
+                    quantidade1++;
+                    Snackbar snackbar = Snackbar
+                            .make(getActivity().findViewById(android.R.id.content), "Adicionado um botijão a compra", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                    txtQuantidade1.setText(quantidade1.toString());
+                } else {
+                    Snackbar snackbar = Snackbar
+                            .make(getActivity().findViewById(android.R.id.content), "Não é possível comprar mais do que 09 botijões, por favor não insista.", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
             }
         });
         buttonSub1 = root.findViewById(R.id.buttonSub1);
         buttonSub1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(quantidade1 > 1) quantidade1--;
-                txtQuantidade1.setText(quantidade1.toString());
+                if(quantidade1 > 1) {
+                    quantidade1--;
+                    Snackbar snackbar = Snackbar
+                            .make(getActivity().findViewById(android.R.id.content), "Retirado um botijão da compra", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                    txtQuantidade1.setText(quantidade1.toString());
+                } else {
+                    Snackbar snackbar = Snackbar
+                            .make(getActivity().findViewById(android.R.id.content), "Não é possível comprar menos do que 1 botijão, por favor não insista.", Snackbar.LENGTH_LONG);
+                    snackbar.show();
+                }
             }
         });
 
+        buttonCompra1 = root.findViewById(R.id.buttonCompra);
+        buttonCompra1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar snackbar = Snackbar
+                        .make(getActivity().findViewById(android.R.id.content), "Comprar pressionado", Snackbar.LENGTH_LONG);
+                snackbar.show();
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_comprarFragment);
+            }
+        });
 
 
         return root;

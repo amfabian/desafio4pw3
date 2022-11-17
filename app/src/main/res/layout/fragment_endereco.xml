@@ -81,28 +81,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtEndFragmentCidade"
-            android:hint="Complemento"
+            android:hint="Cidade"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutEndFragment_CEP"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:maxLength="6"
-        app:errorEnabled="true"
-        app:boxBackgroundColor="@null">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtEndFragmentCEP"
-            android:hint="Complemento"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
 
 
     <Button

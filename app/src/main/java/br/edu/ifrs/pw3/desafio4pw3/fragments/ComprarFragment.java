@@ -19,10 +19,11 @@ import com.google.android.material.textfield.TextInputEditText;
 import br.edu.ifrs.pw3.desafio4pw3.R;
 import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDAO;
 import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDatabase;
+import br.edu.ifrs.pw3.desafio4pw3.util.Cliente;
 import br.edu.ifrs.pw3.desafio4pw3.util.Pedido;
 
 
-public class CadastrarFragment extends Fragment {
+public class ComprarFragment extends Fragment {
 
     private TextInputEditText txtCliente;
     private TextInputEditText txtEndereco;
@@ -39,7 +40,7 @@ public class CadastrarFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_cadastrar, container, false);
+        View root = inflater.inflate(R.layout.fragment_comprar, container, false);
         context = getContext();
         txtCliente = root.findViewById(R.id.txtClienteCad);
         txtEndereco = root.findViewById(R.id.txtEnderecoCad);
@@ -47,6 +48,21 @@ public class CadastrarFragment extends Fragment {
         txtEnderecoCidade = root.findViewById(R.id.txtEnderecoCidadeCad);
         //txtItem = root.findViewById(R.id.txtItemCad);
         //qtd = Integer.valueOf(root.findViewById(R.id.txtQtdCad));
+        if(Cliente.endereco.isEmpty()) {
+            Snackbar snackbar = Snackbar
+                    .make(getActivity().findViewById(android.R.id.content), "ENDERECO VAZIO", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        } else {
+            Snackbar snackbar = Snackbar
+                    .make(getActivity().findViewById(android.R.id.content), "ENDERECO PREENCHIDO", Snackbar.LENGTH_LONG);
+            snackbar.show();
+            txtCliente.setText(Cliente.nome);
+            txtEndereco.setText(Cliente.endereco);
+            txtEnderecoComplemento.setText(Cliente.enderecoLinha2);
+            txtEnderecoCidade.setText(Cliente.cidade);
+        }
+
+
         btnFinalizarPedido = root.findViewById(R.id.btnFinalizarPedido);
         btnFinalizarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +91,7 @@ public class CadastrarFragment extends Fragment {
                             Snackbar.make(view, "Erro ao finalizar o pedido", Snackbar.LENGTH_LONG).show();
                         else {
                             Snackbar.make(view, "Feito o pedido de "+ qtd + "botijão(ões)", Snackbar.LENGTH_LONG).show();
-                            Navigation.findNavController(view).navigate(R.id.action_nav_cadastrarFragment_to_nav_home);        }
+                            Navigation.findNavController(view).navigate(R.id.action_nav_comprarFragment_to_nav_home);        }
                     }
                 }.execute();
             }

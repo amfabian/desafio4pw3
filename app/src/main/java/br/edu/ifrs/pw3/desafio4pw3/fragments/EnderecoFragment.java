@@ -31,13 +31,11 @@ public class EnderecoFragment extends Fragment {
         TextInputEditText textEnderecoLinha1 = root.findViewById(R.id.txtEndFragmentEndereco);
         TextInputEditText textEnderecoLinha2 = root.findViewById(R.id.txtEndFragmentEnderecoLinha2);
         TextInputEditText textCidade = root.findViewById(R.id.txtEndFragmentCidade);
-        TextInputEditText textCEP = root.findViewById(R.id.txtEndFragmentCEP);
 
         Cliente.nome = Objects.requireNonNull(textNome.getText()).toString();
         Cliente.endereco = Objects.requireNonNull(textEnderecoLinha1.getText()).toString();
         Cliente.enderecoLinha2 = Objects.requireNonNull(textEnderecoLinha2.getText()).toString();
         Cliente.cidade = textCidade.getText().toString();
-        Cliente.cep = textCEP.getText().toString();
 
         Button btnEndCadastrar = root.findViewById(R.id.btnEndFragmentCadastrar);
         btnEndCadastrar.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +45,6 @@ public class EnderecoFragment extends Fragment {
                 Cliente.endereco = textEnderecoLinha1.getText().toString();
                 Cliente.enderecoLinha2 = textEnderecoLinha2.getText().toString();
                 Cliente.cidade = textCidade.getText().toString();
-                Cliente.cep = textCEP.getText().toString();
                 Cliente.primeiroLogin = false;
 
                 Navigation.findNavController(view).navigate(R.id.action_EnderecoFragment_to_Home);

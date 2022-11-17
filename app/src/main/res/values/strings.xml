@@ -23,4 +23,6 @@
     <string name="cancelar">Cancelar</string>
     <string name="maistarde">Mais tarde</string>
     <string name="sim">Sim</string>
+    <string name="pagmento">Escolha a forma de pagamento:</string>
+    <string name="txt_pedido">Seu Pedido foi Realizado!</string>
 </resources>

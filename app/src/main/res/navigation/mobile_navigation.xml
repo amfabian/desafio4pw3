@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/enderecoFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.EnderecoFragment"
-        android:label="enderecoFragment"
+        android:label="Endereco"
         tools:layout="@layout/fragment_endereco">
         <action
             android:id="@+id/action_EnderecoFragment_to_Home"
@@ -38,16 +38,16 @@
     <fragment
         android:id="@+id/nav_comprarFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ComprarFragment"
-        android:label="ComprarFragment"
+        android:label="Comprar"
         tools:layout="@layout/fragment_comprar">
         <action
-            android:id="@+id/action_nav_comprarFragment_to_nav_home"
-            app:destination="@id/nav_home" />
+            android:id="@+id/action_nav_comprarFragment_to_PagarFragment"
+            app:destination="@id/PagarFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_listarFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ListarFragment"
-        android:label="ListarFragment"
+        android:label="Meus Pedidos"
         tools:layout="@layout/fragment_listar">
         <action
             android:id="@+id/action_listarFragment_to_editarFragment"
@@ -56,6 +56,35 @@
     <fragment
         android:id="@+id/editarFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.EditarFragment"
-        android:label="EditarFragment"
+        android:label="Editar"
         tools:layout="@layout/fragment_editar"/>
+
+    <fragment
+        android:id="@+id/PagarFragment"
+        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.PagarFragment"
+        android:label="Pagamento"
+        tools:layout="@layout/fragment_pagar">
+        <action
+            android:id="@+id/action_PagarFragment_to_PagarCCFragment"
+            app:destination="@id/PagarCCFragment" />
+        <action
+            android:id="@+id/action_PagarFragment_to_AcompanharPedido"
+            app:destination="@id/AcompanharPedido" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/PagarCCFragment"
+        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.PagarCartaoCreditoFragment"
+        android:label="Pagar com Cartão de CréditoFragment"
+        tools:layout="@layout/fragment_pagar_cartao_credito">
+        <action
+            android:id="@+id/action_PagarCCFragment_to_AcompanharPedido"
+            app:destination="@id/AcompanharPedido" />
+    </fragment>
+    <fragment
+        android:id="@+id/AcompanharPedido"
+        android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.AcompanharFragment"
+        android:label="Pagar com Cartão de Crédito"
+        tools:layout="@layout/fragment_acompanhar"/>
+
 </navigation>

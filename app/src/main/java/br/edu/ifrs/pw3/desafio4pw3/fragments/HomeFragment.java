@@ -1,10 +1,14 @@
 package br.edu.ifrs.pw3.desafio4pw3.fragments;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +29,7 @@ public class HomeFragment extends Fragment {
     private ImageButton buttonSub1;
     private ImageButton buttonAdd1;
     private AppCompatButton buttonCompra1;
+    private Context context;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +49,11 @@ public class HomeFragment extends Fragment {
                             .make(getActivity().findViewById(android.R.id.content), "Adicionado um botijão a compra", Snackbar.LENGTH_LONG);
                     snackbar.show();
                     txtQuantidade1.setText(quantidade1.toString());
+
+
+
+
+
                 } else {
                     Snackbar snackbar = Snackbar
                             .make(getActivity().findViewById(android.R.id.content), "Não é possível comprar mais do que 09 botijões, por favor não insista.", Snackbar.LENGTH_LONG);

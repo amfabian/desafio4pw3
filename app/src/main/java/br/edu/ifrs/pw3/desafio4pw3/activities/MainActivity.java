@@ -86,19 +86,13 @@ public class MainActivity extends AppCompatActivity {
         builder.setMessage("Desja adicionar o seu endereco?")
                 .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
-                        Snackbar snackbar = Snackbar
-                                .make(findViewById(android.R.id.content), "sim pressionado", Snackbar.LENGTH_LONG);
-                        snackbar.show();
-
                         enterEnderecoFragment(findViewById(R.id.nav_host_fragment));
-
                     }
                 })
                 .setNegativeButton(R.string.maistarde, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Snackbar snackbar = Snackbar
-                                .make(findViewById(android.R.id.content), "+ tarde pressionado", Snackbar.LENGTH_LONG);
+                                .make(findViewById(android.R.id.content), "Sem Problemas! Você poderá adicionar no momento da compra", Snackbar.LENGTH_LONG);
                         snackbar.show();
                     }
                 });

@@ -91,7 +91,7 @@ public class ComprarFragment extends Fragment {
                             Snackbar.make(view, "Erro ao finalizar o pedido", Snackbar.LENGTH_LONG).show();
                         else {
                             Snackbar.make(view, "Feito o pedido de "+ qtd + "botijão(ões)", Snackbar.LENGTH_LONG).show();
-                            Navigation.findNavController(view).navigate(R.id.action_nav_comprarFragment_to_nav_home);        }
+                            Navigation.findNavController(view).navigate(R.id.action_nav_comprarFragment_to_PagarFragment);        }
                     }
                 }.execute();
             }

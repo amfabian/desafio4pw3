@@ -36,7 +36,11 @@
         android:id="@+id/nav_cadastrarFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.CadastrarFragment"
         android:label="CadastrarFragment"
-        tools:layout="@layout/fragment_cadastrar"/>
+        tools:layout="@layout/fragment_cadastrar">
+        <action
+            android:id="@+id/action_nav_cadastrarFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
     <fragment
         android:id="@+id/nav_listarFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ListarFragment"

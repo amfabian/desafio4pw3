@@ -1,17 +1,23 @@
 package br.edu.ifrs.pw3.desafio4pw3.util;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+@Entity
+public class Pedido implements Serializable {
 
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String item;
     private String cliente;
     private String data;
     private String endereco;
-    private String enderecoLinha2;
-    private String cidade;
-    private String cep;
+    private String enderecoComplemento;
+    private String enderecoCidade;
 
 
     private int quantidade;
@@ -19,15 +25,14 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(String item, String cliente, String data, String endereco, String enderecoLinha2, String cidade, String cep, int quantidade) {
-        this.item = item;
-        this.cliente = cliente;
-        this.data = data;
-        this.endereco = endereco;
-        this.enderecoLinha2 = enderecoLinha2;
-        this.cidade = cidade;
-        this.cep = cep;
-        this.quantidade = quantidade;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getItem() {
@@ -70,49 +75,41 @@ public class Pedido {
         this.endereco = endereco;
     }
 
-    public String getEnderecoLinha2() {
-        return enderecoLinha2;
+    public String getEnderecoComplemento() {
+        return enderecoComplemento;
     }
 
-    public void setEnderecoLinha2(String enderecoLinha2) {
-        this.enderecoLinha2 = enderecoLinha2;
+    public void setEnderecoComplemento(String enderecoComplemento) {
+        this.enderecoComplemento = enderecoComplemento;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getEnderecoCidade() {
+        return enderecoCidade;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setEnderecoCidade(String enderecoCidade) {
+        this.enderecoCidade = enderecoCidade;
     }
 
     @Override
     public String toString() {
         return "Pedido{" +
-                "item='" + item + '\'' +
+                "id=" + id +
+                ", item='" + item + '\'' +
                 ", cliente='" + cliente + '\'' +
                 ", data='" + data + '\'' +
                 ", endereco='" + endereco + '\'' +
-                ", enderecoLinha2='" + enderecoLinha2 + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", cep='" + cep + '\'' +
+                ", enderecoComplemento='" + enderecoComplemento + '\'' +
+                ", enderecoCidade='" + enderecoCidade + '\'' +
                 ", quantidade=" + quantidade +
                 '}';
     }
-    public static List<Pedido> inicializaLista(){
+/*  public static List<Pedido> inicializaLista(){
         List<Pedido> pedidos = new ArrayList<>();
         pedidos.add(new Pedido("Botijão 13kg", "Alexandre da Silva", "15/11/2022","Rua Gal. Vasco Alves 508", "apto 501", "Porto Alegre", "9200006", 1));
         pedidos.add(new Pedido("Botijão 45kg", "Michele da Silva", "12/11/2022","Rua Cel Vicente 508", "apto 501", "Porto Alegre", "9200006", 2));
         pedidos.add(new Pedido("Botijão 08kg", "Mario da Silva", "10/11/2022","Rua Voluntarios da Patria 508", "apto 501", "Porto Alegre", "9200006", 3));
           return pedidos;
     }
-
+*/
 }

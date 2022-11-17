@@ -24,6 +24,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
 import br.edu.ifrs.pw3.desafio4pw3.adapter.PedidoAdapter;
+import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDAO;
+import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDatabase;
 import br.edu.ifrs.pw3.desafio4pw3.util.Cliente;
 import br.edu.ifrs.pw3.desafio4pw3.util.Pedido;
 
@@ -56,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
         if(Cliente.primeiroLogin) Log.d("CLIENTE", "TRUE");
         else Log.d("CLIENTE", "FALSE");
 
-    /*    recyclerView = findViewById(R.id.MainActivityRecyclerView);
+
+
+   /*    recyclerView = findViewById(R.id.MainActivityRecyclerView);
         //configurar o adapter - que formata que o layout de cada item do recycler
         PedidoAdapter pedidoAdapter = new PedidoAdapter(Pedido.inicializaLista());
         Log.d("PRODUTOS", Pedido.inicializaLista().toString());

@@ -50,7 +50,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewAdapterQuantidade"
+                    android:id="@+id/textViewAdapterTipo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -59,7 +59,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewAdapterCliente"
+                    android:id="@+id/textViewInfoQuantidade1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -74,7 +74,7 @@
                     android:padding="8dp">
 
                     <ImageButton
-                        android:id="@+id/buttonEditar"
+                        android:id="@+id/buttonSub1"
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -85,19 +85,17 @@
                         app:srcCompat="@drawable/ic_baseline_remove_36" />
 
                     <TextView
-                        android:id="@+id/textViewbt"
+                        android:id="@+id/textViewQuantidade1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginRight="15dp"
                         android:layout_marginLeft="15dp"
-
-                        android:text="10"
                         android:textSize="36dp"
                         android:textStyle="bold" />
 
                     <ImageButton
-                        android:id="@+id/buttonEditar21"
+                        android:id="@+id/buttonAdd1"
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,7 +122,6 @@
 
     </androidx.cardview.widget.CardView>
 
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,13 +131,14 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="8dp">
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
+                    android:layout_gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -155,68 +153,87 @@
 
                     <TextView
                         android:id="@+id/textViewAdapterItem2"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Botijão Gás"
+                        android:layout_gravity="center"
+                        android:text="Botijão de Gás"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textViewAdapterQuantidade2"
-                        android:layout_width="match_parent"
+                        android:id="@+id/textViewAdapterTipo2"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="13kg"
+                        android:layout_gravity="center"
+                        android:text="45kg"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textViewAdapterCliente2"
-                        android:layout_width="match_parent"
+                        android:id="@+id/textViewInfoQuantidade2"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Informe a quantidade: "
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">
 
                         <ImageButton
-                            android:id="@+id/buttonEditar2"
+                            android:id="@+id/buttonSub2"
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
+                            android:layout_gravity="left"
+                            android:background="@drawable/roundcorner"
                             android:text="@string/editar"
                             android:textColor="#276bea"
-                            app:srcCompat="@drawable/ic_principal" />
+                            app:srcCompat="@drawable/ic_baseline_remove_36" />
 
                         <TextView
-                            android:id="@+id/textViewbt2"
+                            android:id="@+id/textViewQuantidade2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginLeft="15dp"
+
                             android:text="10"
                             android:textSize="36dp"
                             android:textStyle="bold" />
 
                         <ImageButton
-                            android:id="@+id/buttonEditar22"
+                            android:id="@+id/buttonAdd2"
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:text="@string/editar"
+                            android:layout_gravity="right"
+                            android:background="@drawable/roundcorner"
+                            android:text="adicionar"
                             android:textColor="#276bea"
-                            app:srcCompat="@drawable/ic_principal" />
+                            app:srcCompat="@drawable/ic_baseline_add_36" />
 
                     </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonCompra2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginLeft="45dp"
+                        android:background="@drawable/roundcorner_green"
+                        android:text="Comprar"
+                        android:textColor="#000000" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.cardview.widget.CardView>
-
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -227,13 +244,14 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="8dp">
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="175dp"
                     android:layout_height="175dp"
+                    android:layout_gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -248,62 +266,82 @@
 
                     <TextView
                         android:id="@+id/textViewAdapterItem3"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Botijão Gás"
+                        android:layout_gravity="center"
+                        android:text="Botijão de Gás"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textViewAdapterQuantidade3"
-                        android:layout_width="match_parent"
+                        android:id="@+id/textViewAdapterTipo3"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="13kg"
+                        android:layout_gravity="center"
+                        android:text="08kg"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textViewAdapterCliente3"
-                        android:layout_width="match_parent"
+                        android:id="@+id/textViewInfoQuantidade3"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Informe a quantidade: "
                         android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:orientation="horizontal"
                         android:padding="8dp">
 
                         <ImageButton
-                            android:id="@+id/buttonEditar3"
+                            android:id="@+id/buttonSub3"
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
+                            android:layout_gravity="left"
+                            android:background="@drawable/roundcorner"
                             android:text="@string/editar"
                             android:textColor="#276bea"
-                            app:srcCompat="@drawable/ic_principal" />
+                            app:srcCompat="@drawable/ic_baseline_remove_36" />
 
                         <TextView
-                            android:id="@+id/textViewbt3"
+                            android:id="@+id/textViewQuantidade3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginLeft="15dp"
+
                             android:text="10"
                             android:textSize="36dp"
                             android:textStyle="bold" />
 
                         <ImageButton
-                            android:id="@+id/buttonEditar23"
+                            android:id="@+id/buttonAdd3"
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@android:color/transparent"
-                            android:text="@string/editar"
+                            android:layout_gravity="right"
+                            android:background="@drawable/roundcorner"
+                            android:text="adicionar"
                             android:textColor="#276bea"
-                            app:srcCompat="@drawable/ic_principal" />
+                            app:srcCompat="@drawable/ic_baseline_add_36" />
 
                     </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonCompra3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginLeft="45dp"
+                        android:background="@drawable/roundcorner_green"
+                        android:text="Comprar"
+                        android:textColor="#000000" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>

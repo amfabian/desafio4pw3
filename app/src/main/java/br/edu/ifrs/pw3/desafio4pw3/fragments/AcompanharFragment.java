@@ -100,7 +100,7 @@ public class AcompanharFragment extends Fragment {
         } else {
             String pag_aux = "Você pagou com ";
             pag_aux += pagamento;
-            pag_aux += " \nNão aceite cobrancas no momento da entrega.";
+            pag_aux += ".\nNão aceite cobrancas no momento da entrega.";
             pagamento = pag_aux;
         }
         textViewPagamento.setText(pagamento);

@@ -22,10 +22,12 @@ import com.google.android.material.snackbar.Snackbar;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
 import br.edu.ifrs.pw3.desafio4pw3.util.Cliente;
+import br.edu.ifrs.pw3.desafio4pw3.util.Pedido;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("CLIENTE", Cliente.cep);
         if(Cliente.primeiroLogin) Log.d("CLIENTE", "TRUE");
         else Log.d("CLIENTE", "FALSE");
+
+
+
+
+
 
 
 

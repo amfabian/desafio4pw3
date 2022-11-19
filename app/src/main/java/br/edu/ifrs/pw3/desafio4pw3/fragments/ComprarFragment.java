@@ -3,6 +3,7 @@ package br.edu.ifrs.pw3.desafio4pw3.fragments;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +30,7 @@ public class ComprarFragment extends Fragment {
     private TextInputEditText txtEndereco;
     private TextInputEditText txtEnderecoComplemento;
     private TextInputEditText txtEnderecoCidade;
-    private TextInputEditText txtItem;
-    private TextInputEditText txtQuantidade;
+    private String item;
     private Integer qtd;
     private Button btnFinalizarPedido;
     private Context context;
@@ -42,12 +42,21 @@ public class ComprarFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_comprar, container, false);
         context = getContext();
+
+
+
         txtCliente = root.findViewById(R.id.txtClienteCad);
         txtEndereco = root.findViewById(R.id.txtEnderecoCad);
         txtEnderecoComplemento = root.findViewById(R.id.txtEnderecoComplementoCad);
         txtEnderecoCidade = root.findViewById(R.id.txtEnderecoCidadeCad);
-        //txtItem = root.findViewById(R.id.txtItemCad);
-        //qtd = Integer.valueOf(root.findViewById(R.id.txtQtdCad));
+
+        Bundle bundle = getArguments();
+        item = bundle.getString("pedidoItem", "Default");
+        Log.d("testBundle", item);
+        qtd = bundle.getInt("pedidoQuantidade", -111);
+        Log.d("testBundle", qtd.toString());
+
+
         if(Cliente.endereco.isEmpty()) {
             Snackbar snackbar = Snackbar
                     .make(getActivity().findViewById(android.R.id.content), "ENDERECO VAZIO", Snackbar.LENGTH_LONG);
@@ -67,7 +76,6 @@ public class ComprarFragment extends Fragment {
         btnFinalizarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 new AsyncTask<Void,Integer, Integer>() {
                     @Override
                     protected Integer doInBackground(Void... voids) {
@@ -77,8 +85,8 @@ public class ComprarFragment extends Fragment {
                         pedido.setEndereco(txtEndereco.getText().toString());
                         pedido.setEnderecoComplemento(txtEnderecoComplemento.getText().toString());
                         pedido.setEnderecoCidade(txtEnderecoCidade.getText().toString());
-                        pedido.setItem("Botijao exemplo");
-                        pedido.setQuantidade(1);
+                        pedido.setItem(item);
+                        pedido.setQuantidade(qtd);
                         pedido.setData("17/11/2022");
 
                         pessoaDao.insert(pedido);
@@ -90,7 +98,7 @@ public class ComprarFragment extends Fragment {
                         if(id==null)
                             Snackbar.make(view, "Erro ao finalizar o pedido", Snackbar.LENGTH_LONG).show();
                         else {
-                            Snackbar.make(view, "Feito o pedido de "+ qtd + "botijão(ões)", Snackbar.LENGTH_LONG).show();
+                            Snackbar.make(view, "Feito o pedido de "+ qtd + " de " + item, Snackbar.LENGTH_LONG).show();
                             Navigation.findNavController(view).navigate(R.id.action_nav_comprarFragment_to_PagarFragment);        }
                     }
                 }.execute();

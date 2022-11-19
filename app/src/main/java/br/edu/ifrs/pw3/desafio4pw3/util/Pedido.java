@@ -18,9 +18,7 @@ public class Pedido implements Serializable {
     private String endereco;
     private String enderecoComplemento;
     private String enderecoCidade;
-
-
-    private int quantidade;
+    private Integer quantidade;
 
     public Pedido() {
     }
@@ -59,11 +57,11 @@ public class Pedido implements Serializable {
         this.data = data;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 

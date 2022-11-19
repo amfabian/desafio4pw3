@@ -20,7 +20,7 @@ public abstract class PedidoDatabase extends RoomDatabase {
 
     public static PedidoDatabase getInstance(Context context) {
         if(pedidoDatabase == null) {
-            pedidoDatabase = Room.databaseBuilder(context.getApplicationContext(), PedidoDatabase.class, "pedido_database")
+            pedidoDatabase = Room.databaseBuilder(context.getApplicationContext(), PedidoDatabase.class, "pedido_db")
                     .fallbackToDestructiveMigration()
                     .build();
         }

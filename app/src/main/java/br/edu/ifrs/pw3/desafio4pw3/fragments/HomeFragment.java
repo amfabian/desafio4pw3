@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,13 +85,17 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Snackbar snackbar = Snackbar
-                        .make(getActivity().findViewById(android.R.id.content), "Comprar pressionado", Snackbar.LENGTH_LONG);
+                        .make(getActivity().findViewById(android.R.id.content), "Comprar pressionado BUNDLE", Snackbar.LENGTH_LONG);
                 snackbar.show();
-                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_comprarFragment);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("pedidoQuantidade", quantidade1);
+                if(quantidade1 >= 2) bundle.putString("pedidoItem", "Botijões de 13kg");
+                    else bundle.putString("pedidoItem", "Botijão de 13kg");
+                Log.d("testBundle", "ok");
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_comprarFragment, bundle);
             }
         });
-
-
         return root;
     }
 

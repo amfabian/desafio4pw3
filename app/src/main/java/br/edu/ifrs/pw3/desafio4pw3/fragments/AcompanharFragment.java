@@ -1,6 +1,7 @@
 package br.edu.ifrs.pw3.desafio4pw3.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,8 @@ public class AcompanharFragment extends Fragment {
         mensagem2 = "O nosso entregador irá procurar por ";
         mensagem2+= Cliente.nome;
         textViewCliente.setText(mensagem2);
+
+
 
 
 

@@ -37,7 +37,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MyViewHold
         Pedido p = listaPedidos.get(position);
         myViewHolder.item.setText(p.getItem());
         myViewHolder.cliente.setText(p.getCliente());
-        myViewHolder.quantidade.setText("1");
+        myViewHolder.quantidade.setText(p.getQuantidade().toString());
         myViewHolder.data.setText(p.getData());
         myViewHolder.endereco.setText(p.getEndereco());
 

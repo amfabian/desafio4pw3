@@ -33,13 +33,40 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull PedidoAdapter.MyViewHolder myViewHolder, int position) {
-        //exibe os itens no Recycler
+
+        // Monta os textos a serem exibidos
         Pedido p = listaPedidos.get(position);
-        myViewHolder.item.setText(p.getItem());
-        myViewHolder.cliente.setText(p.getCliente());
-        myViewHolder.quantidade.setText(p.getQuantidade().toString());
-        myViewHolder.data.setText(p.getData());
-        myViewHolder.endereco.setText(p.getEndereco());
+
+        //Modelo msg: Pedido do dia 24/12/2022
+        String msg;
+        msg = "Pedido do dia ";
+        msg += p.getData();
+
+        //Modelo Item: 3 Botijões de 13kg da Butano Gás
+        String item;
+        item = p.getQuantidade().toString();
+        item += " ";
+        item += p.getItem();
+        item += " da Butano Gás";
+
+        //Modelo Cliente: Recebido por Alexandre Fabian
+        String cliente;
+        cliente = "Recebidos por ";
+        cliente += p.getCliente();
+
+        //Modelo Endereco: Rua Cel. Vicente apto 500
+        String endereco;
+        endereco = p.getEndereco();
+        endereco += " ";
+        endereco += p.getEnderecoComplemento();
+
+
+        //exibe os itens no Recycler
+        myViewHolder.pedido.setText(msg);
+        myViewHolder.item_quantidade.setText(item);
+        myViewHolder.cliente.setText(cliente);
+        myViewHolder.cidade.setText(p.getEnderecoCidade());
+        myViewHolder.endereco.setText(endereco);
 
     }
 
@@ -50,19 +77,19 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         //dados do pedido que serão exibidos no recycler
-        TextView item;
+        TextView pedido;
         TextView cliente;
-        TextView data;
-        TextView quantidade;
+        TextView cidade;
+        TextView item_quantidade;
         TextView endereco;
 
         public MyViewHolder(View itemView){
             super(itemView);
             //passa uma referência para os componentes que estão na interface
-            item = itemView.findViewById(R.id.textViewAdapterItem);
+            pedido = itemView.findViewById(R.id.textViewAdapterPedido);
             cliente = itemView.findViewById(R.id.textViewAdapterCliente);
-            quantidade = itemView.findViewById(R.id.textViewAdapterQuantidade);
-            data = itemView.findViewById(R.id.textViewAdapterData);
+            item_quantidade = itemView.findViewById(R.id.textViewAdapterItemQuantidade);
+            cidade = itemView.findViewById(R.id.textViewAdapterCidade);
             endereco = itemView.findViewById(R.id.textViewAdapterEndereco);
         }
     }

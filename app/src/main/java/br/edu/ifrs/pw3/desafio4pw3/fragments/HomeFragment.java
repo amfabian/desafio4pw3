@@ -50,11 +50,6 @@ public class HomeFragment extends Fragment {
                             .make(getActivity().findViewById(android.R.id.content), "Adicionado um botijão a compra", Snackbar.LENGTH_LONG);
                     snackbar.show();
                     txtQuantidade1.setText(quantidade1.toString());
-
-
-
-
-
                 } else {
                     Snackbar snackbar = Snackbar
                             .make(getActivity().findViewById(android.R.id.content), "Não é possível comprar mais do que 09 botijões, por favor não insista.", Snackbar.LENGTH_LONG);
@@ -90,6 +85,7 @@ public class HomeFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putInt("pedidoQuantidade", quantidade1);
+                bundle.putInt("pedidoValor", 110*quantidade1);
                 if(quantidade1 >= 2) bundle.putString("pedidoItem", "Botijões de 13kg");
                     else bundle.putString("pedidoItem", "Botijão de 13kg");
                 Log.d("testBundle", "ok");

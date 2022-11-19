@@ -87,6 +87,6 @@
         android:id="@+id/btnFinalizarPedido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PAGAR"/>
+        android:text="IR PARA PAGAMENTO"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

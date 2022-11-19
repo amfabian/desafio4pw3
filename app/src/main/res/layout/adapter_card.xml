@@ -12,22 +12,24 @@
         android:orientation="vertical"
         android:padding="8dp">
         <TextView
-            android:id="@+id/textViewAdapterItem"
+            android:id="@+id/textViewAdapterPedido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Item"
             android:textSize="18dp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/textViewAdapterQuantidade"
+            android:id="@+id/textViewAdapterItemQuantidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quantidade" />
+            android:textSize="18dp"
+            android:text="Quantidade e Item" />
         <TextView
             android:id="@+id/textViewAdapterCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cliente"
+            android:textSize="16dp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/textViewAdapterEndereco"
@@ -35,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="Endereco" />
         <TextView
-            android:id="@+id/textViewAdapterData"
+            android:id="@+id/textViewAdapterCidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Data do pedido" />

@@ -14,9 +14,10 @@
             android:title="@string/listar" />
 
         <item
-            android:id="@+id/nav_comprarFragment"
+            android:id="@+id/enderecoFragment"
             android:icon="@drawable/ic_principal"
             android:title="@string/cadastrar" />
+
 
 
     </group>

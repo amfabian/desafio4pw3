@@ -17,6 +17,8 @@ import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Calendar;
+
 import br.edu.ifrs.pw3.desafio4pw3.R;
 import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDAO;
 import br.edu.ifrs.pw3.desafio4pw3.dao.PedidoDatabase;
@@ -71,38 +73,46 @@ public class ComprarFragment extends Fragment {
             txtEnderecoCidade.setText(Cliente.cidade);
         }
 
-
         btnFinalizarPedido = root.findViewById(R.id.btnFinalizarPedido);
         btnFinalizarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AsyncTask<Void,Integer, Integer>() {
-                    @Override
-                    protected Integer doInBackground(Void... voids) {
-                        PedidoDAO pessoaDao = PedidoDatabase.getInstance(context).createPedidoDAO();
-                        Pedido pedido = new Pedido();
-                        pedido.setCliente(txtCliente.getText().toString());
-                        pedido.setEndereco(txtEndereco.getText().toString());
-                        pedido.setEnderecoComplemento(txtEnderecoComplemento.getText().toString());
-                        pedido.setEnderecoCidade(txtEnderecoCidade.getText().toString());
-                        pedido.setItem(item);
-                        pedido.setQuantidade(qtd);
-                        pedido.setData("17/11/2022");
-
-                        pessoaDao.insert(pedido);
-                        return pedido.getId();
-                    }
-
-                    @Override
-                    protected void onPostExecute(Integer id) {
-                        if(id==null)
-                            Snackbar.make(view, "Erro ao finalizar o pedido", Snackbar.LENGTH_LONG).show();
-                        else {
-                            Snackbar.make(view, "Feito o pedido de "+ qtd + " de " + item, Snackbar.LENGTH_LONG).show();
-                            Navigation.findNavController(view).navigate(R.id.action_nav_comprarFragment_to_PagarFragment);        }
-                    }
-                }.execute();
+                navegarParaPagamento(view, bundle);
             }
         }); return root;
+    }
+
+    private void navegarParaPagamento(View view, Bundle bundle) {
+        bundle.putString("pedidoCliente", txtCliente.getText().toString());
+        bundle.putString("pedidoEndereco", txtEndereco.getText().toString());
+        bundle.putString("pedidoEnderecoComplemento", txtEnderecoComplemento.getText().toString());
+        bundle.putString("pedidoEnderecoCidade", txtEnderecoCidade.getText().toString());
+        bundle.putString("pedidoData", obterData());
+        Navigation.findNavController(view).navigate(R.id.action_nav_comprarFragment_to_PagarFragment, bundle);
+    }
+
+    private String obterData() {
+        String data;
+        Integer data_aux;
+
+
+
+
+        Calendar c = Calendar.getInstance();
+        data_aux = c.get(Calendar.DAY_OF_MONTH);
+        data = data_aux.toString();
+        data += "/";
+
+        data_aux = c.get(Calendar.MONTH);
+        data_aux++;
+        data += data_aux.toString();
+        data += "/";
+
+        data_aux = c.get(Calendar.YEAR);
+        data += data_aux.toString();
+        Log.d("testBundle", c.getTime().toString());
+        Log.d("testBundle", data);
+
+        return data;
     }
 }

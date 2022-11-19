@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +24,8 @@ public class PagarFragment extends Fragment {
     private AppCompatButton pagarPIX;
     private AppCompatButton pagarCC;
     private AppCompatButton pagarRS;
+    private TextView textValor;
+    private String msg;
 
     @Nullable
     @Override
@@ -33,6 +36,16 @@ public class PagarFragment extends Fragment {
         pagarPIX = root.findViewById(R.id.buttonPIX);
         pagarCC = root.findViewById(R.id.buttonCC);
         pagarRS = root.findViewById(R.id.buttonRS);
+        textValor= root.findViewById(R.id.textValor);
+        Bundle bundle = getArguments();
+        Integer v;
+        v = bundle.getInt("pedidoValor", -1);
+        msg = "R$ ";
+        msg += v.toString();
+        msg += ",00";
+        textValor.setText(msg);
+
+
 
         pagarPIX.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +57,8 @@ public class PagarFragment extends Fragment {
                                 setMessage("Pague com PIX").
                                 setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Navigation.findNavController(view).navigate(R.id.action_PagarFragment_to_AcompanharPedido);
+                                        bundle.putString("pedidoPagamento", "PIX");
+                                        Navigation.findNavController(view).navigate(R.id.action_PagarFragment_to_AcompanharPedido, bundle);
                                     }
                                 }).
                                 setView(image);
@@ -58,7 +72,8 @@ public class PagarFragment extends Fragment {
                 Snackbar snackbar = Snackbar
                         .make(getActivity().findViewById(android.R.id.content), "CC", Snackbar.LENGTH_LONG);
                 snackbar.show();
-                Navigation.findNavController(view).navigate(R.id.action_PagarFragment_to_PagarCCFragment);
+                bundle.putString("pedidoPagamento", "Cartão de Crédito");
+                Navigation.findNavController(view).navigate(R.id.action_PagarFragment_to_PagarCCFragment, bundle);
             }});
         pagarRS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +84,8 @@ public class PagarFragment extends Fragment {
                 builder.setMessage("O Pagamento será feito no momento da entrega")
                         .setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Navigation.findNavController(view).navigate(R.id.action_PagarFragment_to_AcompanharPedido);
+                                bundle.putString("pedidoPagamento", "Dinheiro");
+                                Navigation.findNavController(view).navigate(R.id.action_PagarFragment_to_AcompanharPedido, bundle);
                             }
                         });
                 // Create the AlertDialog object and return it

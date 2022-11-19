@@ -24,6 +24,7 @@ public class PagarCartaoCreditoFragment extends Fragment {
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_pagar_cartao_credito, container, false);
+        Bundle bundle = getArguments();
         btnPagarCC = root.findViewById(R.id.btnFragmentPagarCC);
         btnPagarCC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +32,7 @@ public class PagarCartaoCreditoFragment extends Fragment {
                 Snackbar snackbar = Snackbar
                         .make(getActivity().findViewById(android.R.id.content), "Pago com Cartão de Crédito", Snackbar.LENGTH_LONG);
                 snackbar.show();
-                Navigation.findNavController(view).navigate(R.id.action_PagarCCFragment_to_AcompanharPedido);
+                Navigation.findNavController(view).navigate(R.id.action_PagarCCFragment_to_AcompanharPedido, bundle);
             }});
 
 

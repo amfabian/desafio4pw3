@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/nav_comprarFragment"
         android:name="br.edu.ifrs.pw3.desafio4pw3.fragments.ComprarFragment"
-        android:label="Comprar"
+        android:label="Confirme seu Endereço"
         tools:layout="@layout/fragment_comprar">
         <action
             android:id="@+id/action_nav_comprarFragment_to_PagarFragment"

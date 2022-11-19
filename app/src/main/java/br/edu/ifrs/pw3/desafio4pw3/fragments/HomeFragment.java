@@ -18,11 +18,18 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import br.edu.ifrs.pw3.desafio4pw3.R;
+import br.edu.ifrs.pw3.desafio4pw3.util.GlideApp;
 
 
 public class HomeFragment extends Fragment {
+    private ImageView imgBotijao13;
+    private ImageView imgBotijao08;
+    private ImageView imgBotijao45;
+
     private Integer quantidade1 = 1;
     private Integer quantidade2 = 1;
     private Integer quantidade3 = 1;
@@ -45,10 +52,27 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
+        imgBotijao13 = root.findViewById(R.id.imageView1);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference imagens = storageReference.child("produtos/"+"butanoGas13.jpeg");
+        GlideApp.with(getActivity())
+                .load(imagens)
+                .into(imgBotijao13);
+        imgBotijao45 = root.findViewById(R.id.imageView2);
+        imagens = storageReference.child("produtos/"+"butanoGas45.jpeg");
+        GlideApp.with(getActivity())
+                .load(imagens)
+                .into(imgBotijao45);
+        imgBotijao08 = root.findViewById(R.id.imageView3);
+        imagens = storageReference.child("produtos/"+"butanoGas08.jpeg");
+        GlideApp.with(getActivity())
+                .load(imagens)
+                .into(imgBotijao08);
+
+
 
         txtQuantidade1 = root.findViewById(R.id.textViewQuantidade1);
-       txtQuantidade1.setText(quantidade1.toString());
-
+        txtQuantidade1.setText(quantidade1.toString());
         buttonAdd1 = root.findViewById(R.id.buttonAdd1);
         buttonAdd1.setOnClickListener(new View.OnClickListener() {
             @Override

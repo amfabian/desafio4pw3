@@ -55,26 +55,6 @@ public class MainActivity extends AppCompatActivity {
         else Log.d("CLIENTE", "FALSE");
 
 
-
-
-
-
-
-
-   /*    recyclerView = findViewById(R.id.MainActivityRecyclerView);
-        //configurar o adapter - que formata que o layout de cada item do recycler
-        PedidoAdapter pedidoAdapter = new PedidoAdapter(Pedido.inicializaLista());
-        Log.d("PRODUTOS", Pedido.inicializaLista().toString());
-        Log.d("PRODUTOS", String.valueOf(R.id.MainActivityRecyclerView));
-        recyclerView.setAdapter(pedidoAdapter);
-        //linha de código usada para otimizar o recycler
-        recyclerView.setHasFixedSize(true);
-        //configurar o gerenciador de layout
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        //definindo o layout do recycler
-        recyclerView.setLayoutManager(layoutManager);
-*/
-
         if(Cliente.endereco.isEmpty()){
             primeiroLogin();
 
@@ -99,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.maistarde, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Snackbar snackbar = Snackbar
-                                .make(findViewById(android.R.id.content), "Sem Problemas! Você poderá adicionar no momento da compra", Snackbar.LENGTH_LONG);
+                                .make(findViewById(android.R.id.content), "Sem Problemas!\nVocê poderá adicionar no momento da compra", Snackbar.LENGTH_LONG);
                         snackbar.show();
                     }
                 });
